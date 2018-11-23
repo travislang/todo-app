@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+}
+
+.container {
+    width: 50%;
+    border: 1px solid black;
+    margin: 100px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#taskList{
+    width: 80%;
+    list-style: none;
+}
+
+.task {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+
+.task span {
+    margin-right: 20px;
+}
+.task button {
+    margin-left: auto;
+}
+
+#addTask {
+    width: 200px;
+}
