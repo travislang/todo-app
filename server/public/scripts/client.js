@@ -11,7 +11,7 @@ function readyNow( ){
     // toggle if task is completed or not
     $( '#taskList' ).on( 'click', '.check', toggleComplete );
     // delete task from DB
-    $( '#taskList' ).on( 'click', '.deleteBtn', deleteTask );
+    $( '#taskList' ).on( 'click', '.deleteBtn', alertDelete );
     // show delete button on hover
     $('#taskList').on( 'mouseenter', '.task', function(){
         $( '.deleteBtn', this ).show( );
@@ -105,9 +105,28 @@ function toggleComplete( ){
     });// end ajax
 }// end toggleComplete
 
-function deleteTask( ){
+function alertDelete( ){
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to undo this action",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("Your task has been deleted!", {
+                    icon: "success",
+                });
+                deleteTask( $( this ).parent().data( 'task' ) );
+            } else {
+                swal("Your task is safe!");
+            }
+        });
+}// end alertDelete
+
+function deleteTask( task ){
     // get data object for task to delete
-    let task = $(this).parent().data('task');
     $.ajax({
         method: 'DELETE',
         url: `/tasks/${task.id}`
