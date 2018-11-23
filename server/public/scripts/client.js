@@ -106,6 +106,7 @@ function toggleComplete( ){
 }// end toggleComplete
 
 function alertDelete( ){
+    // alert card info
     swal({
         title: "Are you sure?",
         text: "Once deleted, you will not be able to undo this action",
@@ -113,11 +114,13 @@ function alertDelete( ){
         buttons: true,
         dangerMode: true,
     })
-        .then((willDelete) => {
+    // wait until user clicks okay or cancel
+    .then((willDelete) => {
             if (willDelete) {
                 // swal("Your task has been deleted!", {
                 //     icon: "success",
                 // });
+                // call delete task ajax call and pass in this reference
                 deleteTask( $( this ).parent().data( 'task' ) );
             } else {
                 swal("Your task is safe!");
@@ -126,7 +129,6 @@ function alertDelete( ){
 }// end alertDelete
 
 function deleteTask( task ){
-    // get data object for task to delete
     $.ajax({
         method: 'DELETE',
         url: `/tasks/${task.id}`
