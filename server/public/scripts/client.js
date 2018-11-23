@@ -2,9 +2,15 @@ $( document ).ready( readyNow );
 
 function readyNow( ){
     console.log( 'JQ' );
-    getTasks( );
+    // hide input on page load
+    $( '#addTaskDiv' ).hide( );
+    // toggle if input form is visible
+    $( '#addTask ').on( 'click', toggleInput );
+    // add new task to DB
     $( '#addTaskBtn' ).on( 'click', addTask );
+    // toggle if task is completed or not
     $( '#taskList' ).on( 'click', '.check', toggleComplete );
+    // delete task from DB
     $( '#taskList' ).on( 'click', '.deleteBtn', deleteTask );
     // show delete button on hover
     $('#taskList').on( 'mouseenter', '.task', function(){
@@ -14,6 +20,8 @@ function readyNow( ){
     $('#taskList').on('mouseleave', '.task', function () {
         $('.deleteBtn', this).hide();
     });
+    // get tasks from DB on page load
+    getTasks();
 }
 
 function getTasks( ){
@@ -104,3 +112,7 @@ function deleteTask( ){
         console.log( 'error from DEL route:', err );
     });// end ajax
 }// end deleteTask
+
+function toggleInput( ){
+    $( '#addTaskDiv' ).toggle( );
+}

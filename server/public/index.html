@@ -14,10 +14,17 @@
 <body>
     <div class="container">
         <h1>TODOS</h1>
-        <button id="addTask">Add Task</button>
+        <button class="btn btn-outline-primary" id="addTask">Add Task</button>
         <div id=addTaskDiv>
-            <input type="text" id="addTaskIn" placeholder="Add a task to List">
-            <button id="addTaskBtn">Add Task</button>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Task</span>
+                </div>
+                <input type="text" id="addTaskIn" class="form-control" placeholder="Ex: Walk the dog" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-success addInput" id="addTaskBtn">Add</button>
+                </div>
+            </div>
         </div>
         <ul id="taskList">
         </ul>

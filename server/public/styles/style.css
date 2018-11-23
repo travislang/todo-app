@@ -49,7 +49,7 @@ body {
 }
 
 .completedCheck {
-    color: #2fd820;
+    color: #28a745;
 }
 
 .completedText {
@@ -60,4 +60,13 @@ body {
 .deleteBtn {
     color: red;
     padding-left: 10px;
+}
+
+#addTaskDiv {
+    width: 70%;
+    margin-top: 25px;
+}
+
+.addInput {
+    width: 150px;
 }
