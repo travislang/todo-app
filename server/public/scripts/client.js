@@ -13,7 +13,6 @@ function getTasks( ){
         method: 'GET',
         url: '/tasks'
     }).then( function( res ){
-        console.log( 'back from GET server with:', res );
         displayTasks( res );
     }).catch( function( err ){
         console.log( 'error in GET:', err );
@@ -48,7 +47,6 @@ function addTask( ){
     }).then( function( res ){
         // clear out input value
         $('#addTaskIn').val( '' );
-        console.log( 'back from server with:', res );
     }).catch( function( err ){
         console.log( 'error in post:', err );
     });
@@ -63,7 +61,6 @@ function toggleComplete( ){
         method: 'PUT',
         url: `/tasks/${task.id}`
     }).then( function( res ){
-        console.log( 'back from PUT server with:', res );
         // update DOM
         getTasks( );
     }).catch( function( err ){
@@ -78,7 +75,6 @@ function deleteTask( ){
         method: 'DELETE',
         url: `/tasks/${task.id}`
     }).then( function( res ){
-        console.log( 'back from DEL route:', res );
         //update DOM
         getTasks( );
     }).catch( function( err ){
