@@ -6,6 +6,14 @@ function readyNow( ){
     $( '#addTaskBtn' ).on( 'click', addTask );
     $( '#taskList' ).on( 'click', '.check', toggleComplete );
     $( '#taskList' ).on( 'click', '.deleteBtn', deleteTask );
+    // show delete button on hover
+    $('#taskList').on( 'mouseenter', '.task', function(){
+        $( '.deleteBtn', this ).show( );
+    });
+    // hide delete button on mouseleave
+    $('#taskList').on('mouseleave', '.task', function () {
+        $('.deleteBtn', this).hide();
+    });
 }
 
 function getTasks( ){
@@ -14,6 +22,8 @@ function getTasks( ){
         url: '/tasks'
     }).then( function( res ){
         displayTasks( res );
+        // check to style different if complete
+        checkIfComplete( );
     }).catch( function( err ){
         console.log( 'error in GET:', err );
     })
@@ -26,16 +36,29 @@ function displayTasks( tasks ){
         // create element to append to ul
         let el = $(`
         <li class="task">
-        <span><i class="far fa-check-circle check"></i></span>
-        ${task.note}
-        <button class="deleteBtn">X</button>
+        <span><i class="far fa-check-circle check"></i>
+        ${task.note}</span>
+        <i class="deleteBtn far fa-trash-alt"></i>
         </li>` )
         // add task info as data to each el
         el.data( 'task', task );
         // append to ul
         $('#taskList').append(el);
+        $( '#taskList .deleteBtn' ).hide( );
     }// end for loop
 }// end displayTaks
+
+function checkIfComplete( ){
+    $( '.task' ).each( function(){
+        console.log( $( this ))
+        let task = $( this ).data( 'task' );
+        console.log( task );
+        if( task.completed ){
+            $( 'i.check', this ).toggleClass( 'completedCheck' );
+            $( 'span', this ).toggleClass( 'completedText' );
+        }
+    })
+}
 
 function addTask( ){
     // capture input value

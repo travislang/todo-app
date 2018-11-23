@@ -20,8 +20,12 @@ body {
 
 #taskList{
     width: 80%;
-    font-size: 1.25em;
+    font-size: 1.5em;
     list-style: none;
+}
+
+#taskList i {
+    cursor: pointer;
 }
 
 .task {
@@ -33,13 +37,27 @@ body {
     border-bottom: 1px solid grey;
 }
 
-.task span {
+.task i.check {
     margin-right: 20px;
 }
-.task button {
+.task i.deleteBtn {
     margin-left: auto;
 }
 
 #addTask {
     width: 200px;
+}
+
+.completedCheck {
+    color: #2fd820;
+}
+
+.completedText {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.deleteBtn {
+    color: red;
+    padding-left: 10px;
 }
