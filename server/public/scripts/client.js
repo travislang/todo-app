@@ -58,9 +58,7 @@ function displayTasks( tasks ){
 
 function checkIfComplete( ){
     $( '.task' ).each( function(){
-        console.log( $( this ))
         let task = $( this ).data( 'task' );
-        console.log( task );
         if( task.completed ){
             $( 'i.check', this ).toggleClass( 'completedCheck' );
             $( 'span', this ).toggleClass( 'completedText' );
@@ -71,18 +69,24 @@ function checkIfComplete( ){
 function addTask( ){
     // capture input value
     let task = $( '#addTaskIn' ).val( );
-    $.ajax({
-        method: 'POST',
-        url: '/tasks',
-        data: { task: task }
-    }).then( function( res ){
-        // clear out input value
-        $('#addTaskIn').val( '' );
-    }).catch( function( err ){
-        console.log( 'error in post:', err );
-    });
-    // update tasks list
-    getTasks( );
+    // check if anything was entered in inpiut
+    if( task == '' ){
+        alert( 'invalid please try again');
+    }
+    else{
+        $.ajax({
+            method: 'POST',
+            url: '/tasks',
+            data: { task: task }
+        }).then(function (res) {
+            // clear out input value
+            $('#addTaskIn').val('');
+        }).catch(function (err) {
+            console.log('error in post:', err);
+        });
+        // update tasks list
+        getTasks();
+    }
 }// end addTask
 
 function toggleComplete( ){

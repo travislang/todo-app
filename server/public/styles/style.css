@@ -5,22 +5,38 @@
 }
 
 body {
+    font-family: 'Raleway', sans-serif;
     width: 100vw;
+    background: #C9D6FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+    text-align: center;
+    font-size: 5.8em;
+    padding-left: 50px;
+    letter-spacing: 0.65em;
+    color: #ff883f;
+    
 }
 
 .container {
+    background-color: aliceblue;
+    border-radius: 10px;
     width: 50%;
-    border: 1px solid black;
     margin: 100px auto;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
 }
 
 #taskList{
     width: 80%;
-    font-size: 1.5em;
+    font-size: 1.75em;
     list-style: none;
 }
 
@@ -37,7 +53,8 @@ body {
     border-bottom: 1px solid grey;
 }
 
-.task i.check {
+.check {
+    color: #e0e0e0;
     margin-right: 20px;
 }
 .task i.deleteBtn {
@@ -45,7 +62,9 @@ body {
 }
 
 #addTask {
+    font-size: 1.25em;
     width: 200px;
+    margin-bottom: 20px;
 }
 
 .completedCheck {
@@ -53,7 +72,7 @@ body {
 }
 
 .completedText {
-    color: gray;
+    color: #cecece;
     text-decoration: line-through;
 }
 

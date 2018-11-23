@@ -26,7 +26,7 @@ pool.on( 'error', () => {
 
 // GET
 router.get( '/', ( req, res ) => {
-    let queryString = 'SELECT * FROM "tasks" ORDER BY "id" ASC;';
+    let queryString = 'SELECT * FROM "tasks" ORDER BY "completed" ASC;';
     pool.query( queryString )
     .then( (results ) => {
         res.send( results.rows );
