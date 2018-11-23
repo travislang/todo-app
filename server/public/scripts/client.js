@@ -115,9 +115,9 @@ function alertDelete( ){
     })
         .then((willDelete) => {
             if (willDelete) {
-                swal("Your task has been deleted!", {
-                    icon: "success",
-                });
+                // swal("Your task has been deleted!", {
+                //     icon: "success",
+                // });
                 deleteTask( $( this ).parent().data( 'task' ) );
             } else {
                 swal("Your task is safe!");
