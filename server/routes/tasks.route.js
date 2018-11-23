@@ -52,7 +52,7 @@ router.put( '/:id', ( req, res ) => {
     let id = req.params.id;
     // toggle if completed or not
     let queryString = `UPDATE "tasks" SET "completed" = NOT "completed"
-    WHERE "id" = $1`
+    WHERE "id" = $1;`;
     pool.query( queryString, [id])
     .then( result => {
         res.sendStatus( 201 );
@@ -61,6 +61,19 @@ router.put( '/:id', ( req, res ) => {
         res.sendStatus( 500 );
     })// end query
 }); // end PUT route
+
+router.delete( '/:id', ( req, res ) => {
+    //get id of task to delete
+    let id = req.params.id;
+    let queryString = `DELETE FROM "tasks" WHERE "id" = $1;`;
+    pool.query( queryString, [ id ] )
+    .then( result => {
+        res.sendStatus( 200 );
+    }).catch( error => {
+        console.log( 'error on delete:', error );
+        res.sendStatus( 500 );
+    })// end query
+}); // end delete route
 
 
 

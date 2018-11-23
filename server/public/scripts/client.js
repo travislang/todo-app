@@ -5,6 +5,7 @@ function readyNow( ){
     getTasks( );
     $( '#addTaskBtn' ).on( 'click', addTask );
     $( '#taskList' ).on( 'click', '.check', toggleComplete );
+    $( '#taskList' ).on( 'click', '.deleteBtn', deleteTask );
 }
 
 function getTasks( ){
@@ -28,7 +29,7 @@ function displayTasks( tasks ){
         <li class="task">
         <span><i class="far fa-check-circle check"></i></span>
         ${task.note}
-        <button>X</button>
+        <button class="deleteBtn">X</button>
         </li>` )
         // add task info as data to each el
         el.data( 'task', task );
@@ -63,8 +64,24 @@ function toggleComplete( ){
         url: `/tasks/${task.id}`
     }).then( function( res ){
         console.log( 'back from PUT server with:', res );
+        // update DOM
         getTasks( );
     }).catch( function( err ){
         console.log( 'error on put:', err );
     });// end ajax
 }// end toggleComplete
+
+function deleteTask( ){
+    // get data object for task to delete
+    let task = $(this).parent().data('task');
+    $.ajax({
+        method: 'DELETE',
+        url: `/tasks/${task.id}`
+    }).then( function( res ){
+        console.log( 'back from DEL route:', res );
+        //update DOM
+        getTasks( );
+    }).catch( function( err ){
+        console.log( 'error from DEL route:', err );
+    });// end ajax
+}// end deleteTask
