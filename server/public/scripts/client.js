@@ -12,7 +12,7 @@ function getTasks( ){
         method: 'GET',
         url: '/tasks'
     }).then( function( res ){
-        console.log( 'back from server with:', res );
+        console.log( 'back from GET server with:', res );
         displayTasks( res );
     }).catch( function( err ){
         console.log( 'error in GET:', err );
@@ -45,6 +45,8 @@ function addTask( ){
         url: '/tasks',
         data: { task: task }
     }).then( function( res ){
+        // clear out input value
+        $('#addTaskIn').val( '' );
         console.log( 'back from server with:', res );
     }).catch( function( err ){
         console.log( 'error in post:', err );
@@ -52,3 +54,17 @@ function addTask( ){
     // update tasks list
     getTasks( );
 }// end addTask
+
+function toggleComplete( ){
+    // get data object for element to target
+    let task = $( this ).parent( ).parent( ).data( 'task' );
+    $.ajax({
+        method: 'PUT',
+        url: `/tasks/${task.id}`
+    }).then( function( res ){
+        console.log( 'back from PUT server with:', res );
+        getTasks( );
+    }).catch( function( err ){
+        console.log( 'error on put:', err );
+    });// end ajax
+}// end toggleComplete

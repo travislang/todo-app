@@ -40,12 +40,27 @@ router.post( '/', ( req, res ) => {
     let queryString = 'INSERT INTO "tasks" ("note") VALUES ($1)'
     pool.query( queryString, [req.body.task] )
     .then( results => {
-        res.sendStatus( 204 );
+        res.sendStatus( 201 );
     }).catch( err => {
         console.log( 'error in post:', err );
         res.sendStatus( 500 );
     }); // end DB query
 }); // end POST route
+
+router.put( '/:id', ( req, res ) => {
+    // get id of task to change
+    let id = req.params.id;
+    // toggle if completed or not
+    let queryString = `UPDATE "tasks" SET "completed" = NOT "completed"
+    WHERE "id" = $1`
+    pool.query( queryString, [id])
+    .then( result => {
+        res.sendStatus( 201 );
+    }).catch( err => {
+        console.log( 'error on put:', err );
+        res.sendStatus( 500 );
+    })// end query
+}); // end PUT route
 
 
 
