@@ -4,6 +4,7 @@ function readyNow( ){
     console.log( 'JQ' );
     getTasks( );
     $( '#addTaskBtn' ).on( 'click', addTask );
+    $( '#taskList' ).on( 'click', '.check', toggleComplete );
 }
 
 function getTasks( ){
@@ -25,7 +26,7 @@ function displayTasks( tasks ){
         // create element to append to ul
         let el = $(`
         <li class="task">
-        <span>J</span>
+        <span><i class="far fa-check-circle check"></i></span>
         ${task.note}
         <button>X</button>
         </li>` )

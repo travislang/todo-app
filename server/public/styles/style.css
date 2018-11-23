@@ -20,6 +20,7 @@ body {
 
 #taskList{
     width: 80%;
+    font-size: 1.25em;
     list-style: none;
 }
 
