@@ -81,11 +81,13 @@ function addTask( ){
         }).then(function (res) {
             // clear out input value
             $('#addTaskIn').val('');
+            // update tasks list
+            getTasks( );
         }).catch(function (err) {
             console.log('error in post:', err);
         });
-        // update tasks list
-        getTasks();
+        
+        
     }
 }// end addTask
 
