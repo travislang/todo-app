@@ -1,7 +1,6 @@
 const express = require( 'express' );
 const router = express.Router( );
 const bodyParser = require('body-parser');
-const pg = require( 'pg' );
 const pool = require('../modules/pool.module.js');
 
 // // DB CONNECTION
