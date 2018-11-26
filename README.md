@@ -6,12 +6,12 @@ A simple todo app that has database logic for persisting data
 
 ## Built With
 
-*Node
-*Express
-*PostgreSQL
-*Bootstrap
-*jQuery
-*Custom Styling
+-Node
+-Express
+-PostgreSQL
+-Bootstrap
+-jQuery
+-Custom Styling
 
 ## Getting Started
 
@@ -19,10 +19,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Link to software that is required before you attempt to start the app (e.g. node, mongo).
-
 - [Node.js](https://nodejs.org/en/)
-- a database instance with the name "tasks"
+- [postgreSQL](https://www.postgresql.org/)
+- a database instance with the name 'weekend-to-do-app'
 
 
 ### Installing
@@ -31,40 +30,37 @@ Steps to get the development environment running.
 
 1. Download this project.
 2. `npm install`
-3. Copy the `database.sql` file into a postgreSQL query
-4. `npm start`
+3. connect server to the database
+4. Copy the `database.sql` file into a postgreSQL database with the name 'weekend-to-do-app' and execute the file
+5. `npm start`
 
 
 ## Screen Shot
 ![Alt text](/assets/main-screenshot.jpg)
 
 
-## Documentation
-
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
-
 ### Completed Features
 
-High level list of items completed.
-
-- [x] Feature a
-- [x] Feature b
+- [x] ajax loading of tasks on page
+- [x] ajax posting of new task to DB and updating list
+- [x] modify completed status on database
+- [x] delete task from database
+- [x] sort tasks by 'completed'
 
 ### Next Steps
 
-Features that you would like to add at some point in the future.
-
-- [ ] Feature c
+- [ ] add locations linked to a task
+- [ ] use phone GPS to alert when at a location that is linked to an unfinished task
 
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
 
-## Authors
+## Author
 
-* Name of author(s)
+* Travis Lang
 
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
+* Thanks to all of the developers of the open source software that was used
