@@ -75,7 +75,4 @@ router.delete( '/:id', ( req, res ) => {
     })// end query
 }); // end delete route
 
-
-
-
 module.exports = router;

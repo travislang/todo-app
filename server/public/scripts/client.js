@@ -22,7 +22,7 @@ function readyNow( ){
     });
     // get tasks from DB on page load
     getTasks();
-}
+}// end readyNow
 
 function getTasks( ){
     $.ajax({
@@ -64,7 +64,7 @@ function checkIfComplete( ){
             $( 'span', this ).toggleClass( 'completedText' );
         }
     })
-}
+}// end checkIfComplete
 
 function addTask( ){
     // capture input value
@@ -142,4 +142,4 @@ function deleteTask( task ){
 
 function toggleInput( ){
     $( '#addTaskDiv' ).toggle( );
-}
+}// end toggleInput
