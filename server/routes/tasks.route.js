@@ -2,25 +2,26 @@ const express = require( 'express' );
 const router = express.Router( );
 const bodyParser = require('body-parser');
 const pg = require( 'pg' );
+const pool = require('../modules/pool.js');
 
-// DB CONNECTION
-const config = {
-    database: 'weekend-to-do-app',
-    host: 'localhost',
-    port: 5432,
-    max: 10,
-    idleTimeoutMillis: 30000
-}
+// // DB CONNECTION
+// const config = {
+//     database: 'weekend-to-do-app',
+//     host: 'localhost',
+//     port: 5432,
+//     max: 10,
+//     idleTimeoutMillis: 30000
+// }
 
-const pool = new pg.Pool( config );
+// const pool = new pg.Pool( config );
 
-pool.on( 'connect', () => {
-    console.log( 'connected to DB' );
-});
+// pool.on( 'connect', () => {
+//     console.log( 'connected to DB' );
+// });
 
-pool.on( 'error', () => {
-    console.log( 'error connecting to DB' );
-});
+// pool.on( 'error', () => {
+//     console.log( 'error connecting to DB' );
+// });
 
 // ROUTES //
 
