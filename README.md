@@ -36,7 +36,7 @@ Steps to get the development environment running.
 
 
 ## Screen Shot
-![Alt text]()
+![Alt text](/assets/main-screenshot.jpg)
 
 
 ## Documentation
